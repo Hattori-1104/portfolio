@@ -1,0 +1,14 @@
+{
+	"name": "portfolio-monorepo",
+	"private": true,
+	"scripts": {
+		"check": "biome check . && bun run --filter '*' check",
+		"check:fix": "biome check . --write --unsafe && bun run --filter '*' check --write --unsafe"
+	},
+	"workspaces": [
+		"packages/*"
+	],
+	"devDependencies": {
+		"@biomejs/biome": "^2.5.14"
+	}
+}
