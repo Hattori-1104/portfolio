@@ -4,8 +4,21 @@ import { routeTree } from "./routeTree.gen"
 
 const router = createRouter({
 	routeTree,
-	defaultPreload: "intent",
 	scrollRestoration: true,
+	defaultPreload: "intent",
+	defaultPreloadStaleTime: 0,
+	defaultViewTransition: {
+		types({ fromLocation, toLocation, pathChanged }) {
+			if (!fromLocation || !pathChanged) return false
+
+			const from = fromLocation.state.__TSR_index
+			const to = toLocation.state.__TSR_index
+
+			if (from === to) return ["fade"]
+
+			return [from > to ? "back" : "forward"]
+		},
+	},
 })
 
 declare module "@tanstack/react-router" {

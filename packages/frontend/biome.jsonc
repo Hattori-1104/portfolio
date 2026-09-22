@@ -3,5 +3,10 @@
 	"extends": "//",
 	"files": {
 		"includes": ["**", "!**/*.gen.ts"]
+	},
+	"css": {
+		"parser": {
+			"tailwindDirectives": true
+		}
 	}
 }

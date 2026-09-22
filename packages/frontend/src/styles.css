@@ -4,6 +4,90 @@
 	box-sizing: border-box;
 }
 
+.root {
+	isolation: isolate;
+}
+
+code {
+	font-family: "JetBrains Mono", sans-serif;
+}
+
+html:active-view-transition-type(back) {
+	&::view-transition-old(root) {
+		animation: 300ms ease both slide-out-right;
+	}
+	&::view-transition-new(root) {
+		animation: 300ms ease both slide-in-left;
+	}
+}
+html:active-view-transition-type(forward) {
+	&::view-transition-old(root) {
+		animation: 300ms ease both slide-out-left;
+	}
+	&::view-transition-new(root) {
+		animation: 300ms ease both slide-in-right;
+	}
+}
+
+@keyframes slide-out-right {
+	to {
+		transform: translateX(min(30%, 240px));
+		scale: 0.9;
+		filter: blur(10px);
+		opacity: 0;
+	}
+}
+@keyframes slide-in-left {
+	from {
+		transform: translateX(calc(-1 * min(30%, 240px)));
+		scale: 1.05;
+		/* filter: blur(10px); */
+		opacity: 0;
+	}
+}
+@keyframes slide-out-left {
+	to {
+		transform: translateX(calc(-1 * min(30%, 240px)));
+		scale: 1.05;
+		filter: blur(10px);
+		opacity: 0;
+	}
+}
+@keyframes slide-in-right {
+	from {
+		transform: translateX(min(30%, 240px));
+		scale: 0.9;
+		/* filter: blur(10px); */
+		opacity: 0;
+	}
+}
+/* @keyframes slide-out-right {
+	to {
+		transform: translate(5%, -3%);
+		rotate: -5deg;
+		opacity: 0;
+	}
+}
+@keyframes slide-in-left {
+	from {
+		transform: translate(-3%, 0%);
+		opacity: 0;
+	}
+}
+@keyframes slide-out-left {
+	to {
+		transform: translate(-3%, 0%);
+		opacity: 0;
+	}
+}
+@keyframes slide-in-right {
+	from {
+		transform: translate(5%, -3%);
+		rotate: -5deg;
+		opacity: 0;
+	}
+} */
+
 html,
 body,
 #app {
@@ -12,4 +96,5 @@ body,
 
 body {
 	margin: 0;
+	position: relative;
 }
