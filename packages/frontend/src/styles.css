@@ -32,7 +32,7 @@ html:active-view-transition-type(forward) {
 @keyframes slide-out-right {
 	to {
 		transform: translateX(min(30%, 240px));
-		scale: 0.9;
+		/* scale: 0.9; */
 		filter: blur(10px);
 		opacity: 0;
 	}
@@ -40,7 +40,7 @@ html:active-view-transition-type(forward) {
 @keyframes slide-in-left {
 	from {
 		transform: translateX(calc(-1 * min(30%, 240px)));
-		scale: 1.05;
+		/* scale: 1.05; */
 		/* filter: blur(10px); */
 		opacity: 0;
 	}
@@ -48,7 +48,7 @@ html:active-view-transition-type(forward) {
 @keyframes slide-out-left {
 	to {
 		transform: translateX(calc(-1 * min(30%, 240px)));
-		scale: 1.05;
+		/* scale: 1.05; */
 		filter: blur(10px);
 		opacity: 0;
 	}
@@ -56,7 +56,7 @@ html:active-view-transition-type(forward) {
 @keyframes slide-in-right {
 	from {
 		transform: translateX(min(30%, 240px));
-		scale: 0.9;
+		/* scale: 0.9; */
 		/* filter: blur(10px); */
 		opacity: 0;
 	}
