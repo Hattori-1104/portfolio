@@ -1,15 +1,32 @@
+@import "@xyflow/react/dist/style.css" layer(base);
 @import "tailwindcss";
 
-* {
-	box-sizing: border-box;
-}
+@layer base {
+	* {
+		box-sizing: border-box;
+		border-color: var(--color-gray-300);
+	}
+	body {
+		color: var(--color-gray-950);
+		background-color: var(--color-gray-50);
+	}
+	code {
+		font-family: "JetBrains Mono", sans-serif;
+	}
+	html,
+	body,
+	#app {
+		min-height: 100%;
+	}
 
-.root {
-	isolation: isolate;
-}
+	body {
+		margin: 0;
+		position: relative;
+	}
 
-code {
-	font-family: "JetBrains Mono", sans-serif;
+	.root {
+		isolation: isolate;
+	}
 }
 
 html:active-view-transition-type(back) {
@@ -60,41 +77,4 @@ html:active-view-transition-type(forward) {
 		/* filter: blur(10px); */
 		opacity: 0;
 	}
-}
-/* @keyframes slide-out-right {
-	to {
-		transform: translate(5%, -3%);
-		rotate: -5deg;
-		opacity: 0;
-	}
-}
-@keyframes slide-in-left {
-	from {
-		transform: translate(-3%, 0%);
-		opacity: 0;
-	}
-}
-@keyframes slide-out-left {
-	to {
-		transform: translate(-3%, 0%);
-		opacity: 0;
-	}
-}
-@keyframes slide-in-right {
-	from {
-		transform: translate(5%, -3%);
-		rotate: -5deg;
-		opacity: 0;
-	}
-} */
-
-html,
-body,
-#app {
-	min-height: 100%;
-}
-
-body {
-	margin: 0;
-	position: relative;
 }

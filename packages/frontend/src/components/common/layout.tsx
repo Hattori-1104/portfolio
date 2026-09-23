@@ -1,5 +1,5 @@
 import { Button } from "@base-ui/react/button"
-import { useRouter, useRouterState } from "@tanstack/react-router"
+import { useRouter } from "@tanstack/react-router"
 import { FileIcon } from "lucide-react"
 import type { ReactNode } from "react"
 import { useDeferredLoadState } from "#/hooks/useDeferredLoadState"

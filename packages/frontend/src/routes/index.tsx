@@ -1,7 +1,10 @@
-import { createFileRoute, Link, useRouterState } from "@tanstack/react-router"
-import { ConsoleWindow, consolePrefix } from "#/components/console-window"
-import { Layout } from "#/components/layout"
-import { StatusBadge } from "#/components/status-badge"
+import { createFileRoute, Link } from "@tanstack/react-router"
+import {
+	ConsoleWindow,
+	consolePrefix,
+} from "#/components/common/console-window"
+import { Layout } from "#/components/common/layout"
+import { StatusBadge } from "#/components/common/status-badge"
 import { useDeferredLoadState } from "#/hooks/useDeferredLoadState"
 
 export const Route = createFileRoute("/")({ component: Home })

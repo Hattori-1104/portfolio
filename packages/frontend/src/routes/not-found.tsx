@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router"
-import { Layout } from "#/components/layout"
+import { Layout } from "#/components/common/layout"
 
 export const Route = createFileRoute("/not-found")({
 	component: RouteComponent,
