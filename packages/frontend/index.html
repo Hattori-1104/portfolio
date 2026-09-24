@@ -1,13 +1,49 @@
-
 <!doctype html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ポートフォリオ</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ポートフォリオ</title>
+</head>
+
+<body>
+  <div id="splash" aria-hidden="true">
+    <div class="spinner"></div>
+  </div>
+  <div id="app"></div>
+  <style>
+    #splash {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      transition: opacity 0.3s ease;
+    }
+
+    #splash.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .spinner {
+      width: 32px;
+      height: 32px;
+      border: 3px solid #ddd;
+      border-top-color: #333;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>

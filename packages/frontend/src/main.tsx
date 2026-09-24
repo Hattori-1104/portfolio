@@ -29,6 +29,26 @@ declare module "@tanstack/react-router" {
 
 const rootElement = document.getElementById("app")
 
+const nextFrame = () => new Promise((r) => requestAnimationFrame(() => r(null)))
+const timeout = (ms: number) => new Promise((r) => setTimeout(r, ms))
+
+async function hideSplash() {
+	// 描画・レイアウトが走ると、使われているフォントの読み込みが始まる
+	await nextFrame()
+	await nextFrame()
+	// フォント読み込み完了か、3秒経過のどちらか早い方で解除
+	await Promise.race([document.fonts.ready, timeout(3000)])
+
+	const splash = document.getElementById("splash")
+	if (!splash) return
+	splash.classList.add("hide")
+	splash.addEventListener("transitionend", () => splash.remove(), {
+		once: true,
+	})
+}
+
+hideSplash()
+
 if (rootElement && !rootElement.innerHTML) {
 	const root = ReactDOM.createRoot(rootElement)
 	root.render(<RouterProvider router={router} />)
