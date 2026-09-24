@@ -37,7 +37,11 @@ async function hideSplash() {
 	await nextFrame()
 	await nextFrame()
 	// フォント読み込み完了か、3秒経過のどちらか早い方で解除
-	await Promise.race([document.fonts.ready, timeout(3000)])
+	const fontsReady = async () => {
+		await document.fonts.ready
+		await timeout(500)
+	}
+	await Promise.race([fontsReady(), timeout(3000)])
 
 	const splash = document.getElementById("splash")
 	if (!splash) return
